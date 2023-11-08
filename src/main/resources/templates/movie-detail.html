@@ -5,14 +5,20 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}" rel="stylesheet">
   <title>Movie Detail</title>
 </head>
 <body>
+<nav th:replace="/fragments/navbar :: topNavbar('movies')"></nav>
+<div class="container">
 <h1>Best Movie Detail</h1>
 <div th:if="${movie != null}">
   <p th:text="|Id: ${movie.id}|"></p>
   <p th:text="|Titolo: ${movie.titolo}|"></p>
 </div>
 <div th:if="${movie == null}">Non ho trovato nessun Film</div>
+<a th:href="@{/}" style="text-decoration:none; color:black;">Torna alla Home</a>
+</div>
+<script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
