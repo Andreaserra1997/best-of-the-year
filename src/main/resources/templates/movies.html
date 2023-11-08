@@ -9,6 +9,13 @@
 </head>
 <body>
 <h1>Best Movies</h1>
-<p th:text="${bestMovies}"></p>
+<ul th:if="${bestMovies.size() > 0}">
+  <li th:each="movie : ${bestMovies}">
+    <a th:href="@{|/movies/${movie.id}|}">
+    <span th:text="|${movie.id} - ${movie.titolo}|"></span>
+    </a>
+  </li>
+</ul>
+<div th:unless="${bestMovies.size() > 0}">Non ci sono Film</div>
 </body>
 </html>

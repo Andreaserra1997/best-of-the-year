@@ -5,17 +5,14 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Songs</title>
+  <title>Movie Detail</title>
 </head>
 <body>
-<h1>Best Songs</h1>
-<ul th:if="${bestSongs.size() > 0}">
-  <li th:each="song : ${bestSongs}">
-    <a th:href="@{|/songs/${song.id}|}">
-      <span th:text="|${song.id} - ${song.titolo}|"></span>
-    </a>
-  </li>
-</ul>
-<div th:unless="${bestSongs.size() > 0}">Non ci sono Canzoni</div>
+<h1>Best Movie Detail</h1>
+<div th:if="${movie != null}">
+  <p th:text="|Id: ${movie.id}|"></p>
+  <p th:text="|Titolo: ${movie.titolo}|"></p>
+</div>
+<div th:if="${movie == null}">Non ho trovato nessun Film</div>
 </body>
 </html>
